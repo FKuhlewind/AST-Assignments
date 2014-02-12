@@ -1,5 +1,6 @@
 /* PLEASE NOTE that Handlebars was not referenced as a script on the AST site.
-I therefore */
+I therefore downloaded the page and latest version of handlebars and included
+the script reference to handlebars-1.0.rc.1.min.js */
 
 /* add the template scripts */
 var studentsTemplate ='<script id="students-template" type="text/x-handlebars-template"><table><thead><th>First</th><th>Last</th><th>UvA ID</th><th>Email</th></thead><tbody>{{#students}}<tr><td>{{first}}</td><td>{{last}}</td><td>{{uvaID}}</td><td>{{email}}</td></tr>{{/students}}</tbody></table></script>';
