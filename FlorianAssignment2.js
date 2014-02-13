@@ -31,5 +31,15 @@ var theStudentTemplate = Handlebars.compile(studentTemplateScript);
 var theAssignmentTemplate = Handlebars.compile(assignmentTemplateScript);   
 
 /* append the tables */
-$(".info").append("<h1>Students</h1>").append(theStudentTemplate (studentData));
-$(".info").append("<h1>Assignments</h1>").append(theAssignmentTemplate (assignmentData));
+$(".info").append("<h1>Show Students</h1>").append(theStudentTemplate(studentData));
+$(".info").append("<h1>Show Assignments</h1>").append(theAssignmentTemplate(assignmentData));
+
+/* hide new tables and enable slideToggle */
+$(".info table").slice(1).hide();
+
+
+
+
+
+
+
