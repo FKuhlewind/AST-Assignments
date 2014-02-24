@@ -52,7 +52,7 @@ mySVG.selectAll("rect")
     .attr("width", function(d) {
                  return xScale(d.rating)-padding;})
     .style("fill", function (d) {
-            if (!d.fictitious) {return "#ff6666"}
+            if (!d.ficticious) {return "#ff6666"}
             else {return "#8180ff"} ;});   
 // add labels
 mySVG.selectAll("text")
