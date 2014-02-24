@@ -24,7 +24,7 @@ yMax = myObject.events.length; // get number of values
 //create scale functions
 var xScale = d3.scale.linear()
     .domain([0, xMax])
-    .range([padding, width-padding]);
+    .range([padding, width-(padding*2)]);
 var yScale = d3.scale.ordinal()
     .domain(d3.range(yMax))
     .rangeRoundBands([height-padding, padding], 0.1);
@@ -52,8 +52,8 @@ mySVG.selectAll("rect")
     .attr("width", function(d) {
                  return xScale(d.rating)-padding;})
     .style("fill", function (d) {
-            if (d.fictitious==0) {return "#ff666"}
-            else {return "#8180ff"} ;});    
+            if (!d.fictitious) {return "#ff6666"}
+            else {return "#8180ff"} ;});   
 // add labels
 mySVG.selectAll("text")
    .data(myObject.events)
