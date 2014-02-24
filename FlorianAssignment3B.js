@@ -1,4 +1,4 @@
-$("body").append("<p>Click to update with most recent data</p>");
+$("body").append("<p>Click this text to update with most recent data</p>");
 var width = 700;
 var height = 400;
 var padding = 30;
