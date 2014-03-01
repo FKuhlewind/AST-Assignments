@@ -1,26 +1,30 @@
 
+//$(document).ready( function () {
+//});
+
+
+//// THIS WORKS PARTIALLY
+// append script
+//var fbScript = "<script src='https://cdn.firebase.com/v0/firebase.js'></script>";
+//$("head").append(fbScript);
+// create reference and read data
+//var vibDataRef = new Firebase('https://vib-data.firebaseIO.com');
+//vibDataRef.on('value', function(data) {
+//	vibData = data.val();
+//	});
+	
+//// NOT AT ALL
+//d3.json("https://vib-data.firebaseIO.com", function(d){
+//    vibData = json;
+//	});
+//vibData = $.ajax( 'https://vib-data.firebaseIO.com' , () );
+
+
+
+
 var width = 700;
 var height = 700;
 var padding = 30;
-
-// append script
-$("head").append("<script src='https://cdn.firebase.com/v0/firebase.js'></script>");
-
-// create reference and read data
-var vibDataRef = new Firebase('https://vib-data.firebaseIO.com');
-vibDataRef.on('value', function(data) {
-    vibData = data.val();
-    });
-alert(vibData);
-
-
-
-
-d3.json( 'https://assignmentdata.firebaseio.com/.json', 
-  function (assignmentdata){;
-  
-d3.json("https://vib-data.firebaseIO.com", function (vibData));
-alert vibData;
 
 
 
