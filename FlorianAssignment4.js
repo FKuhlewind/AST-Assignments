@@ -1,4 +1,3 @@
-
 //$(document).ready( function () {
 //});
 
@@ -20,12 +19,14 @@
 //vibData = $.ajax( 'https://vib-data.firebaseIO.com' , () );
 
 
-
-
 var width = 700;
 var height = 700;
 var padding = 30;
 
+
+d3.json('https://vib-data.firebaseio.com/.json', function(data) {
+vibData = data;
+});
 
 
 
@@ -85,3 +86,6 @@ mySVG.append("g")
     .attr("transform", "translate(0," + (height - padding) + ")")
     .style({ 'stroke': 'Black', 'fill': 'none', 'stroke-width': '1px'})
     .call(xAxis);
+    
+    
+//// delete later
