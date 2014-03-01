@@ -29,6 +29,11 @@ vibData = data;
 });
 
 
+var arr = $.map( vibData.Dev, function( obj, i ) { return obj; } ); 
+
+xMax = d3.max(arr, function(d) { return d;});
+
+
 
 
 xMax = d3.max(myObject.events, function(d) { return d.rating;}); // get highest value
