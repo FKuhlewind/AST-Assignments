@@ -1,7 +1,8 @@
-// define size of svg and padding
+// define basic values
 var width = 700;
 var height = 700;
 var padding = 30;
+var addToAxis = 0.1; 
 
 //get JSON data
 d3.json('https://vib-data.firebaseio.com/.json', function(data) {
@@ -12,11 +13,18 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 xD = 5;
 yD = 4;
 
+// calculate dixplay range for axis
 // get Min and Max values
 xExt = d3.extent(vibData[xD], function(d) { return d;});
-xExt = d3.extent(vibData[yD], function(d) { return d;});
+yExt = d3.extent(vibData[yD], function(d) { return d;});
 
+//xAdd = ((xExt[1]-xExt[0])*addToAxis);
+fromX = xExt[0] - ( (xExt[1]-xExt[0]) * addToAxis );
+toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
 
+//yAdd = ((yExt[1]-yExt[0])*addToAxis);
+fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
+toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
 
 
 //create scale functions
