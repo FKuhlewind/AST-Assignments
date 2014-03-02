@@ -27,7 +27,6 @@ xyData = [ [vibData[xD][0], vibData[yD][0]] , [vibData[xD][1], vibData[yD][1]] ,
 xLabel = vibData[xD][10];
 yLabel = vibData[yD][10];
 
-
 //create scale functions
 var xScale = d3.scale.linear()
     .domain([fromX, toX])
@@ -47,13 +46,12 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .ticks(5);
 
-
-// create svg 
+//create svg 
 var mySVG = d3.select("body")
     .append("svg")
     .attr("width", width)
     .attr("height", height);    
-//Create circles
+//create circles
 mySVG.selectAll("circle")
     .data(xyData)
     .enter()
@@ -75,8 +73,8 @@ mySVG.append("g")
     .style({ 'stroke': 'Black', 'fill': 'none', 'stroke-width': '1px'})
     .call(yAxis);
 
-    
-mySVG.append("text")      // text label for the x axis
+//create axis labels
+mySVG.append("text")
         .attr("x", width/2 )
         .attr("y", height-(padding/2) )
         .style("text-anchor", "middle")
