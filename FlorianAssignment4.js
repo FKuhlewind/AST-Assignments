@@ -24,13 +24,9 @@ toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
 fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
 toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
 // get data and label variables
-xData = vibData[xD].slice(0,9);
-xLabel = vibData[xD].slice(10);
-yData = vibData[yD].slice(0,9);
-yLabel = vibData[yD].slice(10);
-// possibly shorten this later:
-xyData = [xData, yData];
-xyLabel = [xLabel,yLabel];
+xyData = [ [vibData[xD][0], vibData[yD][0]] , [vibData[xD][1], vibData[yD][1]] , [vibData[xD][2], vibData[yD][2]] , [vibData[xD][3], vibData[yD][3]] , [vibData[xD][4], vibData[yD][4]] , [vibData[xD][5], vibData[yD][5]] , [vibData[xD][6], vibData[yD][6]] , [vibData[xD][7], vibData[yD][7]] , [vibData[xD][8], vibData[yD][8]] , [vibData[xD][9], vibData[yD][9]] ];
+xLabel = vibData[xD][10];
+yLabel = vibData[yD][10];
 
 
 //create scale functions
