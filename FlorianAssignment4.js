@@ -14,15 +14,14 @@ xD = 5;
 yD = 4;
 
 // calculate dixplay range for axis
-// get Min and Max values
 xExt = d3.extent(vibData[xD], function(d) { return d;});
 yExt = d3.extent(vibData[yD], function(d) { return d;});
-//xAdd = ((xExt[1]-xExt[0])*addToAxis);
+
 fromX = xExt[0] - ( (xExt[1]-xExt[0]) * addToAxis );
 toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
-//yAdd = ((yExt[1]-yExt[0])*addToAxis);
 fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
 toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
+
 // get data and label variables
 xyData = [ [vibData[xD][0], vibData[yD][0]] , [vibData[xD][1], vibData[yD][1]] , [vibData[xD][2], vibData[yD][2]] , [vibData[xD][3], vibData[yD][3]] , [vibData[xD][4], vibData[yD][4]] , [vibData[xD][5], vibData[yD][5]] , [vibData[xD][6], vibData[yD][6]] , [vibData[xD][7], vibData[yD][7]] , [vibData[xD][8], vibData[yD][8]] , [vibData[xD][9], vibData[yD][9]] ];
 xLabel = vibData[xD][10];
