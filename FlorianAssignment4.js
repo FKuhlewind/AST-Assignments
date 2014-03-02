@@ -179,5 +179,6 @@ d3.select("#update")
     		.transition()
     		.duration(1000)
     		.text(yLabel);
-});
+	});
+
 
