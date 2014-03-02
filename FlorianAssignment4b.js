@@ -123,9 +123,11 @@ d3.select("#update")
 
 	//update scale domains
 	var xScale = d3.scale.linear()
-	  	.domain([fromX, toX]);
+	  	.domain([fromX, toX])
+	  	.range([padding, width-(padding)]);
 	var yScale = d3.scale.linear()
-	    	.domain([fromY, toY]);
+	    	.domain([fromY, toY])
+	    	.range([height-padding, padding]);
 
 	//update circles
 	mySVG.selectAll("circle")
@@ -138,11 +140,11 @@ d3.select("#update")
             		return yScale(d[1]);});
     	
 	//update x and y axis
-	mySVG.select(".x.axis")
+	mySVG.select(".x .axis")
     		.transition()
     		.duration(1000)
     		.call(xAxis);
-    	mySVG.select(".y.axis")
+    	mySVG.select(".y .axis")
     		.transition()
     		.duration(1000)
     		.call(yAxis);
