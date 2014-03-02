@@ -82,20 +82,12 @@ mySVG.append("text")      // text label for the x axis
         .style("text-anchor", "middle")
         .text(xLabel)
         .style({ 'stroke': 'Black', 'fill': 'black', 'stroke-width': '0.5px' });
-    
-    
-// add labels
-mySVG.selectAll("text")
-   .data(myObject.events)
-   .enter()
-   .append("text")
-   .text ( function name(d) {
-  	return d.name;
-	})
-    .attr("y", function(d, i) {
-                 return yScale(i) + yScale.rangeBand() / 2;})
-    .attr("x", function(d) {
-            return xScale(0)+10;})
-    .attr("alignment-baseline" , "middle")
-    .style({ 'stroke': 'Black', 'fill': 'black', 'stroke-width': '0.5px' });
+mySVG.append("text")
+	.text(yLabel)
+        .attr("x", padding/2)
+        .attr("y", height/2)
+        .style("text-anchor", "middle")
+        .style({ 'stroke': 'Black', 'fill': 'black', 'stroke-width': '0.5px' })
+        .style("writing-mode", "tb");
+        
 
