@@ -1,7 +1,7 @@
 // define basic values
-var width = 700;
-var height = 700;
-var padding = 30;
+var width = 800;
+var height = 800;
+var padding = 100;
 var addToAxis = 0.1; 
 
 //get JSON data
@@ -31,7 +31,7 @@ yLabel = vibData[yD][10];
 //create scale functions
 var xScale = d3.scale.linear()
     .domain([fromX, toX])
-    .range([padding, width-(padding*2)]);
+    .range([padding, width-(padding)]);
 var yScale = d3.scale.linear()
     .domain([fromY, toY])
     .range([height-padding, padding]);
