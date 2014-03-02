@@ -1,43 +1,23 @@
-//$(document).ready( function () {
-//});
-
-
-//// THIS WORKS PARTIALLY
-// append script
-//var fbScript = "<script src='https://cdn.firebase.com/v0/firebase.js'></script>";
-//$("head").append(fbScript);
-// create reference and read data
-//var vibDataRef = new Firebase('https://vib-data.firebaseIO.com');
-//vibDataRef.on('value', function(data) {
-//	vibData = data.val();
-//	});
-	
-//// NOT AT ALL
-//d3.json("https://vib-data.firebaseIO.com", function(d){
-//    vibData = json;
-//	});
-//vibData = $.ajax( 'https://vib-data.firebaseIO.com' , () );
-
-
+// define size of svg and padding
 var width = 700;
 var height = 700;
 var padding = 30;
 
-
+//get JSON data
 d3.json('https://vib-data.firebaseio.com/.json', function(data) {
-vibData = data;
-});
+						vibData = data;
+						});
+
+// define which values to display on Axis
+xD = 5;
+yD = 4;
+
+// get Min and Max values
+xExt = d3.extent(vibData[xD], function(d) { return d;});
+xExt = d3.extent(vibData[yD], function(d) { return d;});
 
 
-var arr = $.map( vibData.Dev, function( obj, i ) { return obj; } ); 
 
-xMax = d3.max(arr, function(d) { return d;});
-
-
-
-
-xMax = d3.max(myObject.events, function(d) { return d.rating;}); // get highest value
-yMax = myObject.events.length; // get number of values
 
 //create scale functions
 var xScale = d3.scale.linear()
