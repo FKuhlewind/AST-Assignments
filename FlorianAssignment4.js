@@ -157,6 +157,7 @@ d3.select("#update")
                 	return xScale(d[0]);})
     		.attr("cy", function(d) {
             		return yScale(d[1]);});
+            
     	
 	//update x and y axis
 	mySVG.select(".x.axis")
