@@ -6,9 +6,9 @@ var addToAxis = 0.1;
 
 //get JSON data
 d3.json('https://vib-data.firebaseio.com/.json', function(data) {
-						vibData = data;
-						});
-
+						
+						
+vibData = data;
 // define which values to display on Axis initially
 xD = 4;
 yD = 5;
@@ -180,5 +180,5 @@ d3.select("#update")
     		.duration(1000)
     		.text(yLabel);
 	});
-
+});
 
