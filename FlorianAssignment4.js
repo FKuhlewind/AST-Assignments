@@ -17,36 +17,45 @@ yD = 4;
 // get Min and Max values
 xExt = d3.extent(vibData[xD], function(d) { return d;});
 yExt = d3.extent(vibData[yD], function(d) { return d;});
-
 //xAdd = ((xExt[1]-xExt[0])*addToAxis);
 fromX = xExt[0] - ( (xExt[1]-xExt[0]) * addToAxis );
 toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
-
 //yAdd = ((yExt[1]-yExt[0])*addToAxis);
 fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
 toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
-
+// get data and label variables
+xData = vibData[xD].slice(0,9);
+xLabel = vibData[xD].slice(10);
+yData = vibData[yD].slice(0,9);
+yLabel = vibData[yD].slice(10);
 
 //create scale functions
 var xScale = d3.scale.linear()
-    .domain([0, xMax])
+    .domain([fromX, toX])
     .range([padding, width-(padding*2)]);
-var yScale = d3.scale.ordinal()
-    .domain(d3.range(yMax))
-    .rangeRoundBands([height-padding, padding], 0.1);
+var yScale = d3.scale.linear()
+    .domain([fromY, toY])
+    .range([h-padding, padding]);
+    
 //define X axis
 var xAxis = d3.svg.axis()
     .scale(xScale)
     .orient("bottom")
-    .ticks(xMax);
+    .ticks(5);
+//define Y axis
+var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left")
+    .ticks(5);
+
 
 // create svg 
 var mySVG = d3.select("body")
     .append("svg")
     .attr("width", width)
     .attr("height", height);    
-//Create bars
-mySVG.selectAll("rect")
+//Create circles
+mySVG.selectAll("circle")
     .data(myObject.events)
     .enter()
     .append("rect")
