@@ -39,7 +39,7 @@ var xScale = d3.scale.linear()
     .range([padding, width-(padding*2)]);
 var yScale = d3.scale.linear()
     .domain([fromY, toY])
-    .range([h-padding, padding]);
+    .range([height-padding, padding]);
     
 //define X axis
 var xAxis = d3.svg.axis()
