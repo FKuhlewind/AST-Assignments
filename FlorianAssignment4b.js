@@ -75,7 +75,13 @@ mySVG.append("g")
     .style({ 'stroke': 'Black', 'fill': 'none', 'stroke-width': '1px'})
     .call(yAxis);
 
-//create axis labels
+//create axis labels and main title
+mySVG.append("text")
+        .attr("x", width/2 )
+        .attr("y", padding/2 )
+        .style("text-anchor", "middle")
+        .text("Vibrato Analysis")
+        .style({ 'stroke': 'Black', 'fill': 'black', 'stroke-width': '0.5px' });
 mySVG.append("text")
 	.attr("class", "x text")
         .attr("x", width/2 )
