@@ -1,7 +1,7 @@
 // define basic values
-var width = 800;
-var height = 800;
-var padding = 100;
+var width = 700;
+var height = 700;
+var padding = 80;
 var addToAxis = 0.1; 
 
 //get JSON data
