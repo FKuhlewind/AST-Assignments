@@ -10,7 +10,7 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 						});
 
 // define which values to display on Axis
-xD = 5;
+xD = 2;
 yD = 4;
 
 // calculate dixplay range for axis
@@ -76,7 +76,12 @@ mySVG.append("g")
     .call(yAxis);
 
     
-    
+mySVG.append("text")      // text label for the x axis
+        .attr("x", width/2 )
+        .attr("y", height-(padding/2) )
+        .style("text-anchor", "middle")
+        .text(xLabel)
+        .style({ 'stroke': 'Black', 'fill': 'black', 'stroke-width': '0.5px' });
     
     
 // add labels
