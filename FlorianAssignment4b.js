@@ -77,12 +77,14 @@ mySVG.append("g")
 
 //create axis labels
 mySVG.append("text")
+	.attr("class", "x text")
         .attr("x", width/2 )
         .attr("y", height-(padding/2) )
         .style("text-anchor", "middle")
         .text(xLabel)
         .style({ 'stroke': 'Black', 'fill': 'black', 'stroke-width': '0.5px' });
 mySVG.append("text")
+	.attr("class", "y text")
 	.text(yLabel)
         .attr("x", padding/2)
         .attr("y", height/2)
@@ -153,13 +155,22 @@ d3.select("#update")
 	//update x and y axis
 	mySVG.select(".x.axis")
     		.transition()
-    		.duration(1000)
+    		.duration(500)
     		.call(xAxis);
     	mySVG.select(".y.axis")
     		.transition()
-    		.duration(1000)
+    		.duration(500)
     		.call(yAxis);
-    	
-
+	
+	//update text labels
+	mySVG.select(".x.text")
+		.text(xLabel)
+    		.transition()
+    		.duration(1000);
+    		
+    	mySVG.select(".y.text")
+    		.transition()
+    		.duration(1000)
+    		.text(yLabel);
 });
 
