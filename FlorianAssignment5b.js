@@ -64,71 +64,59 @@ function createForm () {
 		
 		$.each( vibData , function( index, value ) {
   			firS = firS.concat('<option value='+index+'>'+value[10]+'</option>');
-			});
-		
+  			});
 		$.each( vibData , function( index, value ) {
   			secS = secS.concat('<option value='+index+'>'+value[10]+'</option>');
 			});
 	
-		
-		
 		finalS = startS + firS + midS + secS + endS;
 		$('body').append(finalS);
 		
 		////////// enable update start
 		
-		d3.select("#update")
-		.on("click", function() {
+		d3.select("#update").on("click", function() {
 	
-		//get JSON data
-		//////d3.json('https://vib-data.firebaseio.com/.json', function(data) {
+			// get info on which values to display on Axis
+			xD = document.getElementById("xAxisChoice").value;
+			yD = document.getElementById("yAxisChoice").value;
 		
-		/////vibData = data;
-							
-		// get info on which values to display on Axis
-		xD = document.getElementById("xAxisChoice").value;
-		yD = document.getElementById("yAxisChoice").value;
-	
-		getDisplayRange();
-		getData();
-		updateScaleDomains();
-		defineXYaxis();
-	
-		//update circles
-		mySVG.selectAll("circle")
-	    		.data(xyData)
-	    		.transition()
-	    		.duration(1000)
-	    		.attr("cx", function(d) {
-	                	return xScale(d[0]);})
-	    		.attr("cy", function(d) {
-	            		return yScale(d[1]);});
-	            
-		//update x and y axis
-		mySVG.select(".x.axis")
-	    		.transition()
-	    		.duration(500)
-	    		.call(xAxis);
-	    	mySVG.select(".y.axis")
-	    		.transition()
-	    		.duration(500)
-	    		.call(yAxis);
-	
-		//update text labels
-		mySVG.select(".x.text")
-			.text(xLabel)
-	    		.transition()
-	    		.duration(1000);
-	    		
-	    	mySVG.select(".y.text")
-	    		.transition()
-	    		.duration(1000)
-	    		.text(yLabel);
-		//});
-	});
+			getDisplayRange();
+			getData();
+			updateScaleDomains();
+			defineXYaxis();
 		
-		///////// enable update end
+			//update circles
+			mySVG.selectAll("circle")
+		    		.data(xyData)
+		    		.transition()
+		    		.duration(1000)
+		    		.attr("cx", function(d) {
+		                	return xScale(d[0]);})
+		    		.attr("cy", function(d) {
+		            		return yScale(d[1]);});
+		            
+			//update x and y axis
+			mySVG.select(".x.axis")
+		    		.transition()
+		    		.duration(500)
+		    		.call(xAxis);
+		    	mySVG.select(".y.axis")
+		    		.transition()
+		    		.duration(500)
+		    		.call(yAxis);
 		
+			//update text labels
+			mySVG.select(".x.text")
+				.text(xLabel)
+		    		.transition()
+		    		.duration(1000);
+		    		
+		    	mySVG.select(".y.text")
+		    		.transition()
+		    		.duration(1000)
+		    		.text(yLabel);
+			
+			});
 		
 		});
 	
