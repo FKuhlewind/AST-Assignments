@@ -4,6 +4,7 @@ var height = 500;
 var padding = 80;
 var addToAxis = 0.1; 
 xD = 4; yD = 5; // define values to display initially
+myDataRef = new Firebase('https://vib-data.firebaseio.com/');
 
 // define functions
 function getDisplayRange () {
@@ -123,18 +124,27 @@ $('body').append(newValuesForm);
 d3.select("#storeData")
 	.on("click", function() {
 
-	v1 = document.getElementById("val1").value;
-	v2 = document.getElementById("val2").value;
-	v3 = document.getElementById("val3").value;
-	v4 = document.getElementById("val4").value;
-	v5 = document.getElementById("val5").value;
-	v6 = document.getElementById("val6").value;
-	v7 = document.getElementById("val7").value;
-	v8 = document.getElementById("val8").value;
-	v9 = document.getElementById("val9").value;
-	v10 = document.getElementById("val10").value;
-
-
+	i = vibData.length;
+	
+	myDataRef.child(i).child(0).set( document.getElementById("val1").value );
+	myDataRef.child(i).child(1).set( document.getElementById("val2").value );
+	myDataRef.child(i).child(2).set( document.getElementById("val3").value );
+	myDataRef.child(i).child(3).set( document.getElementById("val4").value );
+	myDataRef.child(i).child(4).set( document.getElementById("val5").value );
+	myDataRef.child(i).child(5).set( document.getElementById("val6").value );
+	myDataRef.child(i).child(6).set( document.getElementById("val7").value );
+	myDataRef.child(i).child(7).set( document.getElementById("val8").value );
+	myDataRef.child(i).child(8).set( document.getElementById("val9").value );
+	myDataRef.child(i).child(9).set( document.getElementById("val10").value );
+	myDataRef.child(i).child(10).set( document.getElementById("newLabel").value );
+	
+	d3.json('https://vib-data.firebaseio.com/.json', function(data) {
+			vibData = data; 
+			alert("New data stored successfully, you can now select and display it above");
+			});
+	
+	/// update fropdown menu with handlebars
+			
 	});
 
 //update with new data on click
