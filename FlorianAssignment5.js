@@ -1,3 +1,16 @@
+// stuff to initialize firebase
+$('head').append("<script src='https://cdn.firebase.com/v0/firebase.js'></script>")
+var myDataRef = new Firebase('https://vib-data.firebaseio.com/');
+myDataRef.push({"count" : "1"});
+myDataRef.push({0: 4.5, 1: 2.7, 2: 9.8}); // that creates an array, although with stupid name
+// the following gets me the ID back:
+// not needed: newRef=myDataRef.push({0: 4.5, 1: 2.7, 2: 9.8});
+var newID = newRef.name();
+//that DOES it
+myDataRef.child('12').child(0).set(4.5);
+
+
+
 // define basic values
 var width = 700;
 var height = 700;
