@@ -117,8 +117,25 @@ mySVG.append("text")
 //aooend update choice options
 var myDrop='<form style="display:inline" name="myform"><br/><u>Select values to be displayed: </u><br/><div><p style="display:inline">x-Axis:    </p><select id="xAxisChoice"><option value=0>Vibrato Time</option><option value=1>Pitch Deviation</option><option value=2>Number of cycles</option><option value=3>Mean Pitch</option><option selected value=4>Rate</option><option value=5>Extent</option><option value=6>Mx Extent Position</option><option value=7>Duration</option></select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice"><option value=0>Vibrato Time</option><option value=1>Pitch Deviation</option><option value=2>Number of cycles</option><option value=3>Mean Pitch</option><option value=4>Rate</option><option selected value=5>Extent</option><option value=6>Mx Extent Position</option><option value=7>Duration</option></select><br/><a><i id="update">Click this text to update diagram</i></a></div></form>'
 $('body').append(myDrop);
-var newValuesForm='<form id="newValues"><br/><u>Enter new Values to be stored: </u><br/>01: <input type="number" id="val1" style="width: 50px;">02: <input type="number" id="val2" style="width: 50px;">03: <input type="number" id="val3" style="width: 50px;">04: <input type="number" id="val4" style="width: 50px;">05: <input type="number" id="val5" style="width: 50px;"><br/>06: <input type="number" id="val6" style="width: 50px;">07: <input type="number" id="val7" style="width: 50px;">08: <input type="number" id="val8" style="width: 50px;">09: <input type="number" id="val9" style="width: 50px;">10: <input type="number" id="val10" style="width: 50px;"><br/>Data type and unit (e.g. <i>Rate [Hz]</i>):<input type="text" id="newLabel" ><br/><a><i id="update">Click this text to store new data</i></a></form>';
+var newValuesForm='<form id="newValues"><br/><u>Enter new Values to be stored: </u><br/>01: <input type="number" id="val1" style="width: 50px;">02: <input type="number" id="val2" style="width: 50px;">03: <input type="number" id="val3" style="width: 50px;">04: <input type="number" id="val4" style="width: 50px;">05: <input type="number" id="val5" style="width: 50px;"><br/>06: <input type="number" id="val6" style="width: 50px;">07: <input type="number" id="val7" style="width: 50px;">08: <input type="number" id="val8" style="width: 50px;">09: <input type="number" id="val9" style="width: 50px;">10: <input type="number" id="val10" style="width: 50px;"><br/>Data type and unit (e.g. <i>Rate [Hz]</i>):<input type="text" id="newLabel" ><br/><a><i id="storeData">Click this text to store new data</i></a></form>';
 $('body').append(newValuesForm);
+
+d3.select("#storeData")
+	.on("click", function() {
+
+	v1 = document.getElementById("val1").value;
+	v2 = document.getElementById("val2").value;
+	v3 = document.getElementById("val3").value;
+	v4 = document.getElementById("val4").value;
+	v5 = document.getElementById("val5").value;
+	v6 = document.getElementById("val6").value;
+	v7 = document.getElementById("val7").value;
+	v8 = document.getElementById("val8").value;
+	v9 = document.getElementById("val9").value;
+	v10 = document.getElementById("val10").value;
+
+
+	});
 
 //update with new data on click
 d3.select("#update")
