@@ -56,22 +56,26 @@ function createForm () {
 	d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 		vibData = data; 
 		vL = vibData.length;
+		firS = '';
+		secS = '';
 		
-		$('body').append('<form style="display:inline" id="myForm"><br/><u>Select values to be displayed: </u><br/><p style="display:inline">x-Axis:</p><select id="xAxisChoice">').delay(200);
+		startS = '<form style="display:inline" id="myForm"><br/><u>Select values to be displayed: </u><br/><p style="display:inline">x-Axis:</p><select id="xAxisChoice">';
 		
 		$.each( vibData , function( index, value ) {
-  			//alert( index + ": " + value[10] );
-			$('body').append('<option value='+index+'>'+value[10]+'</option>');
+  			firS = firS.concat('<option value='+index+'>'+value[10]+'</option>');
 			});
 		
-		$('body').append('</select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice">').delay(200);
+		midS = '</select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice">';
 		
 		$.each( vibData , function( index, value ) {
-  			//alert( index + ": " + value[10] );
-			$('body').append('<option value='+index+'>'+value[10]+'</option>');
+  			secS = secS.concat('<option value='+index+'>'+value[10]+'</option>');
 			});
 	
-		$('body').append('</select><br/><a><i id="update">Click this text to update diagram</i></a></form>');
+		endS = '</select><br/><a><i id="update">Click this text to update diagram</i></a></form>';
+		
+		finalS = startS + firS + midS + secS + endS;
+		
+		$('body').append(finalS);
 		
 		});
 	
