@@ -3,48 +3,53 @@ var width = 700;
 var height = 700;
 var padding = 80;
 var addToAxis = 0.1; 
+xD = 4; yD = 5; // define values to display initially
 
+// define functions
+function getDisplayRange () {
+	// calculate display range for axis
+	xExt = d3.extent(vibData[xD], function(d) { return d;});
+	yExt = d3.extent(vibData[yD], function(d) { return d;});
+	fromX = xExt[0] - ( (xExt[1]-xExt[0]) * addToAxis );
+	toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
+	fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
+	toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
+	};
+function getData () {
+	// get data and label variables
+	xyData = [ [vibData[xD][0], vibData[yD][0]] , [vibData[xD][1], vibData[yD][1]] , [vibData[xD][2], vibData[yD][2]] , [vibData[xD][3], vibData[yD][3]] , [vibData[xD][4], vibData[yD][4]] , [vibData[xD][5], vibData[yD][5]] , [vibData[xD][6], vibData[yD][6]] , [vibData[xD][7], vibData[yD][7]] , [vibData[xD][8], vibData[yD][8]] , [vibData[xD][9], vibData[yD][9]] ];
+	xLabel = vibData[xD][10];
+	yLabel = vibData[yD][10];
+	};
+function updateScaleDomains () {
+	xScale = d3.scale.linear()
+    		.domain([fromX, toX])
+    		.range([padding, width-(padding)]);
+	yScale = d3.scale.linear()
+    		.domain([fromY, toY])
+    		.range([height-padding, padding]);
+	};
+function defineXYaxis () {
+	xAxis = d3.svg.axis()
+    		.scale(xScale)
+    		.orient("bottom")
+    		.ticks(5);
+	yAxis = d3.svg.axis()
+    		.scale(yScale)
+    		.orient("left")
+    		.ticks(5);
+	};
+
+////// actual START of script
 //get JSON data
 d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 
-
 vibData = data;
-// define which values to display on Axis initially
-xD = 4;
-yD = 5;
 
-// calculate dixplay range for axis
-xExt = d3.extent(vibData[xD], function(d) { return d;});
-yExt = d3.extent(vibData[yD], function(d) { return d;});
-
-fromX = xExt[0] - ( (xExt[1]-xExt[0]) * addToAxis );
-toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
-fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
-toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
-
-// get data and label variables
-xyData = [ [vibData[xD][0], vibData[yD][0]] , [vibData[xD][1], vibData[yD][1]] , [vibData[xD][2], vibData[yD][2]] , [vibData[xD][3], vibData[yD][3]] , [vibData[xD][4], vibData[yD][4]] , [vibData[xD][5], vibData[yD][5]] , [vibData[xD][6], vibData[yD][6]] , [vibData[xD][7], vibData[yD][7]] , [vibData[xD][8], vibData[yD][8]] , [vibData[xD][9], vibData[yD][9]] ];
-xLabel = vibData[xD][10];
-yLabel = vibData[yD][10];
-
-//create scale functions
-var xScale = d3.scale.linear()
-    .domain([fromX, toX])
-    .range([padding, width-(padding)]);
-var yScale = d3.scale.linear()
-    .domain([fromY, toY])
-    .range([height-padding, padding]);
-    
-//define X axis
-var xAxis = d3.svg.axis()
-    .scale(xScale)
-    .orient("bottom")
-    .ticks(5);
-//define Y axis
-var yAxis = d3.svg.axis()
-    .scale(yScale)
-    .orient("left")
-    .ticks(5);
+getDisplayRange();
+getData();
+updateScaleDomains();
+defineXYaxis();
 
 //create svg 
 var mySVG = d3.select("body")
@@ -108,45 +113,17 @@ d3.select("#update")
 
 	//get JSON data
 	d3.json('https://vib-data.firebaseio.com/.json', function(data) {
-						vibData = data;
-						});
-
+	
+	vibData = data;
+						
 	// get info on which values to display on Axis
 	xD = document.getElementById("xAxisChoice").value;
 	yD = document.getElementById("yAxisChoice").value;
 
-	// calculate display range for axis
-	xExt = d3.extent(vibData[xD], function(d) { return d;});
-	yExt = d3.extent(vibData[yD], function(d) { return d;});
-
-	fromX = xExt[0] - ( (xExt[1]-xExt[0]) * addToAxis );
-	toX = xExt[1] + ( (xExt[1]-xExt[0]) * addToAxis );
-	fromY = yExt[0] - ( (yExt[1]-yExt[0]) * addToAxis );
-	toY = yExt[1] + ( (yExt[1]-yExt[0]) * addToAxis );
-
-	// get data and label variables
-	xyData = [ [vibData[xD][0], vibData[yD][0]] , [vibData[xD][1], vibData[yD][1]] , [vibData[xD][2], vibData[yD][2]] , [vibData[xD][3], vibData[yD][3]] , [vibData[xD][4], vibData[yD][4]] , [vibData[xD][5], vibData[yD][5]] , [vibData[xD][6], vibData[yD][6]] , [vibData[xD][7], vibData[yD][7]] , [vibData[xD][8], vibData[yD][8]] , [vibData[xD][9], vibData[yD][9]] ];
-	xLabel = vibData[xD][10];
-	yLabel = vibData[yD][10];
-
-	//update scale domains
-	var xScale = d3.scale.linear()
-	  	.domain([fromX, toX])
-	  	.range([padding, width-(padding)]);
-	var yScale = d3.scale.linear()
-	    	.domain([fromY, toY])
-	    	.range([height-padding, padding]);
-
-	//define X axis
-	var xAxis = d3.svg.axis()
-    		.scale(xScale)
-    		.orient("bottom")
-	 	.ticks(5);
-	//define Y axis
-	var yAxis = d3.svg.axis()
-	 	.scale(yScale)
-    		.orient("left")
-		.ticks(5);
+	getDisplayRange();
+	getData();
+	updateScaleDomains();
+	defineXYaxis();
 
 	//update circles
 	mySVG.selectAll("circle")
@@ -158,7 +135,6 @@ d3.select("#update")
     		.attr("cy", function(d) {
             		return yScale(d[1]);});
             
-    	
 	//update x and y axis
 	mySVG.select(".x.axis")
     		.transition()
@@ -179,5 +155,6 @@ d3.select("#update")
     		.transition()
     		.duration(1000)
     		.text(yLabel);
+	});
 	});
 });
