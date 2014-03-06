@@ -51,6 +51,31 @@ function defineXYaxis () {
     		.orient("left")
     		.ticks(5);
 	};
+function createForm () {
+	$("#myForm").remove();
+	d3.json('https://vib-data.firebaseio.com/.json', function(data) {
+		vibData = data; 
+		vL = vibData.length;
+		
+		$('body').append('<form style="display:inline" id="myForm"><br/><u>Select values to be displayed: </u><br/><p style="display:inline">x-Axis:</p><select id="xAxisChoice">').delay(200);
+		
+		$.each( vibData , function( index, value ) {
+  			//alert( index + ": " + value[10] );
+			$('body').append('<option value='+index+'>'+value[10]+'</option>');
+			});
+		
+		$('body').append('</select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice">').delay(200);
+		
+		$.each( vibData , function( index, value ) {
+  			//alert( index + ": " + value[10] );
+			$('body').append('<option value='+index+'>'+value[10]+'</option>');
+			});
+	
+		$('body').append('</select><br/><a><i id="update">Click this text to update diagram</i></a></form>');
+		
+		});
+	
+	};
 
 ////// actual START of script
 //get JSON data
@@ -116,7 +141,7 @@ mySVG.append("text")
         .style("writing-mode", "tb");
 
 //aooend update choice options
-var myDrop='<form style="display:inline" name="myform"><br/><u>Select values to be displayed: </u><br/><div><p style="display:inline">x-Axis:    </p><select id="xAxisChoice"><option value=0>Vibrato Time</option><option value=1>Pitch Deviation</option><option value=2>Number of cycles</option><option value=3>Mean Pitch</option><option selected value=4>Rate</option><option value=5>Extent</option><option value=6>Mx Extent Position</option><option value=7>Duration</option></select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice"><option value=0>Vibrato Time</option><option value=1>Pitch Deviation</option><option value=2>Number of cycles</option><option value=3>Mean Pitch</option><option value=4>Rate</option><option selected value=5>Extent</option><option value=6>Mx Extent Position</option><option value=7>Duration</option></select><br/><a><i id="update">Click this text to update diagram</i></a></div></form>'
+var myDrop='<form style="display:inline" id="myForm"><br/><u>Select values to be displayed: </u><br/><div><p style="display:inline">x-Axis:    </p><select id="xAxisChoice"><option value=0>Vibrato Time</option><option value=1>Pitch Deviation</option><option value=2>Number of cycles</option><option value=3>Mean Pitch</option><option selected value=4>Rate</option><option value=5>Extent</option><option value=6>Mx Extent Position</option><option value=7>Duration</option></select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice"><option value=0>Vibrato Time</option><option value=1>Pitch Deviation</option><option value=2>Number of cycles</option><option value=3>Mean Pitch</option><option value=4>Rate</option><option selected value=5>Extent</option><option value=6>Mx Extent Position</option><option value=7>Duration</option></select><br/><a><i id="update">Click this text to update diagram</i></a></div></form>'
 $('body').append(myDrop);
 var newValuesForm='<form id="newValues"><br/><u>Enter new Values to be stored: </u><br/>01: <input type="number" id="val1" style="width: 50px;">02: <input type="number" id="val2" style="width: 50px;">03: <input type="number" id="val3" style="width: 50px;">04: <input type="number" id="val4" style="width: 50px;">05: <input type="number" id="val5" style="width: 50px;"><br/>06: <input type="number" id="val6" style="width: 50px;">07: <input type="number" id="val7" style="width: 50px;">08: <input type="number" id="val8" style="width: 50px;">09: <input type="number" id="val9" style="width: 50px;">10: <input type="number" id="val10" style="width: 50px;"><br/>Data type and unit (e.g. <i>Rate [Hz]</i>):<input type="text" id="newLabel" ><br/><a><i id="storeData">Click this text to store new data</i></a></form>';
 $('body').append(newValuesForm);
@@ -143,6 +168,8 @@ d3.select("#storeData")
 			alert("New data stored successfully, you can now select and display it above");
 			});
 	
+	
+	createForm();
 	/// update fropdown menu with handlebars
 	/// remove values from form
 			
