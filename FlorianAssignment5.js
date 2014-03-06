@@ -72,7 +72,6 @@ function createForm () {
 		$('body').append(finalS);
 		
 		////////// enable update
-		
 		d3.select("#update").on("click", function() {
 	
 			// get info on which values to display on Axis
