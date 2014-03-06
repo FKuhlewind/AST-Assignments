@@ -144,6 +144,7 @@ d3.select("#storeData")
 			});
 	
 	/// update fropdown menu with handlebars
+	/// remove values from form
 			
 	});
 
