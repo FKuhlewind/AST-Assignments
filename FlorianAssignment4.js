@@ -103,7 +103,7 @@ var myDrop='<form style="display:inline" name="myform"><div><p style="display:in
 $('body').append(myDrop);
 
 //update with new data on click
-d3.select("#update")
+$("#update")
 	.on("click", function() {
 		
 	//get JSON data
