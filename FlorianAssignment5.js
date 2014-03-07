@@ -185,6 +185,7 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 			myDataRef.child(n).child(10).set( $("#newLabel").val() );
 	
 			createForm();
+			$('#newValues :input').val('');
 	
 			d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 				vibData = data; 
