@@ -176,18 +176,17 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 
 	$("#storeData")
 		.on("click", function() {
-		n = vibData.length;
-		
-		for ( var i = 0, l = 10; i < l; i++ ) {
-			p = i + 1;
-    			myDataRef.child(n).child(i).set( parseInt( $("#val"+p).val()) );
-    			};
-		
-		myDataRef.child(n).child(10).set( $("#newLabel").val() );
+			
+			n = vibData.length;
+			for ( var i = 0, l = 10; i < l; i++ ) {
+				p = i + 1;
+    				myDataRef.child(n).child(i).set( parseInt( $("#val"+p).val()) );
+    				};
+			myDataRef.child(n).child(10).set( $("#newLabel").val() );
 	
-		createForm();
+			createForm();
 	
-		d3.json('https://vib-data.firebaseio.com/.json', function(data) {
+			d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 				vibData = data; 
 				alert("New data stored successfully, you can now select and display it above");
 				});
