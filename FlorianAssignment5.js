@@ -221,4 +221,11 @@ $("body").on("click", "p", function() {...}); // this would work with newly appe
 var fieldValue = $('#val1').val(); // check field values with jquery
 $(':input') /// this selects all inpit elements ( can be refined further)
 $('#val1').val(12) /// sets the value of a field to 12
-
+// THe following can be used to check fields (missing manual page264)
+$('#signup').submit(function() {
+ 		if ($('#username').val() == '') {
+ 		alert('Please supply a name in the Name field.');
+ 		return false;
+ 		}
+ 	});
+/// BETTER use validation plugin described on page 280
