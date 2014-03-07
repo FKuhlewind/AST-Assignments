@@ -1,3 +1,5 @@
+// append validation plugin
+$(".content").append('<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>');
 // define basic values
 var width = 600;
 var height = 600;
@@ -193,17 +195,3 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 				});
 		});
 	});
-
-///////////////////////// to add:
-$("body").on("click", "p", function() {...}); // this would work with newly appended stuff!
-var fieldValue = $('#val1').val(); // check field values with jquery
-$(':input') /// this selects all inpit elements ( can be refined further)
-$('#val1').val(12) /// sets the value of a field to 12
-// THe following can be used to check fields (missing manual page264)
-$('#signup').submit(function() {
- 		if ($('#username').val() == '') {
- 		alert('Please supply a name in the Name field.');
- 		return false;
- 		}
- 	});
-/// BETTER use validation plugin described on page 280
