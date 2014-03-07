@@ -18,19 +18,9 @@ function getDisplayRange () {
 	};
 function getData () {
 	// get data and label variables
-	xyData = [	
-			///// REPLACE WITH ITERATION
-			[vibData[xD][0], vibData[yD][0]] ,
-			[vibData[xD][1], vibData[yD][1]] ,
-			[vibData[xD][2], vibData[yD][2]] ,
-			[vibData[xD][3], vibData[yD][3]] ,
-			[vibData[xD][4], vibData[yD][4]] ,
-			[vibData[xD][5], vibData[yD][5]] ,
-			[vibData[xD][6], vibData[yD][6]] ,
-			[vibData[xD][7], vibData[yD][7]] ,
-			[vibData[xD][8], vibData[yD][8]] ,
-			[vibData[xD][9], vibData[yD][9]]
-		];
+	xyData = [];
+	for ( var i = 0, l = 10; i < l; i++ ) {
+    		xyData[i]= [vibData[xD][i], vibData[yD][i]] };
 	xLabel = vibData[xD][10];
 	yLabel = vibData[yD][10];
 	};
