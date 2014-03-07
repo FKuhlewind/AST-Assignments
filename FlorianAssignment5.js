@@ -71,8 +71,8 @@ function createForm () {
 		$("#update").on("click", function() {
 	
 			// get info on which values to display on Axis
-			xD = document.getElementById("xAxisChoice").value;
-			yD = document.getElementById("yAxisChoice").value;
+			xD = $("#xAxisChoice").val();
+			yD = $("#yAxisChoice").val();
 		
 			getDisplayRange();
 			getData();
