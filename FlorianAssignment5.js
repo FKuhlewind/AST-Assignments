@@ -190,17 +190,17 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 
 		i = vibData.length;
 		///// REPLACE WITH ITERATION
-		myDataRef.child(i).child(0).set( parseInt( document.getElementById("val1").value) );
-		myDataRef.child(i).child(1).set( parseInt( document.getElementById("val2").value) );
-		myDataRef.child(i).child(2).set( parseInt( document.getElementById("val3").value) );
-		myDataRef.child(i).child(3).set( parseInt( document.getElementById("val4").value) );
-		myDataRef.child(i).child(4).set( parseInt( document.getElementById("val5").value) );
-		myDataRef.child(i).child(5).set( parseInt( document.getElementById("val6").value) );
-		myDataRef.child(i).child(6).set( parseInt( document.getElementById("val7").value) );
-		myDataRef.child(i).child(7).set( parseInt( document.getElementById("val8").value) );
-		myDataRef.child(i).child(8).set( parseInt( document.getElementById("val9").value) );
-		myDataRef.child(i).child(9).set( parseInt( document.getElementById("val10").value) );
-		myDataRef.child(i).child(10).set( document.getElementById("newLabel").value );
+		myDataRef.child(i).child(0).set( parseInt( $("#val1").val()) );
+		myDataRef.child(i).child(1).set( parseInt( $("#val2").val()) );
+		myDataRef.child(i).child(2).set( parseInt( $("#val3").val()) );
+		myDataRef.child(i).child(3).set( parseInt( $("#val4").val()) );
+		myDataRef.child(i).child(4).set( parseInt( $("#val5").val()) );
+		myDataRef.child(i).child(5).set( parseInt( $("#val6").val()) );
+		myDataRef.child(i).child(6).set( parseInt( $("#val7").val()) );
+		myDataRef.child(i).child(7).set( parseInt( $("#val8").val()) );
+		myDataRef.child(i).child(8).set( parseInt( $("#val9").val()) );
+		myDataRef.child(i).child(9).set( parseInt( $("#val10").val()) );
+		myDataRef.child(i).child(10).set( $("#newLabel").val() );
 	
 		d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 				vibData = data; 
