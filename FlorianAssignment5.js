@@ -219,3 +219,6 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 ///////////////////////// to add:
 $("body").on("click", "p", function() {...}); // this would work with newly appended stuff!
 var fieldValue = $('#val1').val(); // check field values with jquery
+$(':input') /// this selects all inpit elements ( can be refined further)
+$('#val1').val(12) /// sets the value of a field to 12
+
