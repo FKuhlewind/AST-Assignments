@@ -72,7 +72,7 @@ function createForm () {
 		$('body').append(finalS);
 		
 		////////// enable update
-		d3.select("#update").on("click", function() {
+		$("#update").on("click", function() {
 	
 			// get info on which values to display on Axis
 			xD = document.getElementById("xAxisChoice").value;
@@ -189,7 +189,7 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 	var newValuesForm='<form id="newValues"><br/><u>Enter new Values to be stored: </u><br/>01: <input type="number" id="val1" style="width: 50px;">02: <input type="number" id="val2" style="width: 50px;">03: <input type="number" id="val3" style="width: 50px;">04: <input type="number" id="val4" style="width: 50px;">05: <input type="number" id="val5" style="width: 50px;"><br/>06: <input type="number" id="val6" style="width: 50px;">07: <input type="number" id="val7" style="width: 50px;">08: <input type="number" id="val8" style="width: 50px;">09: <input type="number" id="val9" style="width: 50px;">10: <input type="number" id="val10" style="width: 50px;"><br/>Data type and unit (e.g. <i>Rate [Hz]</i>):<input type="text" id="newLabel" ><br/><a><i id="storeData">Click this text to store new data</i></a></form>';
 	$('body').append(newValuesForm);
 
-	d3.select("#storeData")
+	$("#storeData")
 		.on("click", function() {
 
 		i = vibData.length;
