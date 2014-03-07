@@ -19,6 +19,7 @@ function getDisplayRange () {
 function getData () {
 	// get data and label variables
 	xyData = [	
+			///// REPLACE WITH ITERATION
 			[vibData[xD][0], vibData[yD][0]] ,
 			[vibData[xD][1], vibData[yD][1]] ,
 			[vibData[xD][2], vibData[yD][2]] ,
@@ -61,6 +62,7 @@ function createForm () {
 		midS = '</select><p style="display:inline">    y-Axis:   </p><select id="yAxisChoice">';
 		endS = '</select><br/><a><i id="update">Click this text to update diagram</i></a></form>';
 		
+		///// SHORTEN!!!!!
 		$.each( vibData , function( index, value ) {
   			firS = firS.concat('<option value='+index+'>'+value[10]+'</option>');
   			});
@@ -193,7 +195,7 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 		.on("click", function() {
 
 		i = vibData.length;
-	
+		///// REPLACE WITH ITERATION
 		myDataRef.child(i).child(0).set( parseInt( document.getElementById("val1").value) );
 		myDataRef.child(i).child(1).set( parseInt( document.getElementById("val2").value) );
 		myDataRef.child(i).child(2).set( parseInt( document.getElementById("val3").value) );
@@ -213,3 +215,7 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 		createForm();
 		});
 	});
+
+///////////////////////// to add:
+$("body").on("click", "p", function() {...}); // this would work with newly appended stuff!
+var fieldValue = $('#val1').val(); // check field values with jquery
