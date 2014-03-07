@@ -178,28 +178,19 @@ d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 		.on("click", function() {
 		n = vibData.length;
 		
-		
-		
-		///// REPLACE WITH ITERATION
-		myDataRef.child(n).child(0).set( parseInt( $("#val1").val()) );
-		myDataRef.child(n).child(1).set( parseInt( $("#val2").val()) );
-		myDataRef.child(n).child(2).set( parseInt( $("#val3").val()) );
-		myDataRef.child(n).child(3).set( parseInt( $("#val4").val()) );
-		myDataRef.child(n).child(4).set( parseInt( $("#val5").val()) );
-		myDataRef.child(n).child(5).set( parseInt( $("#val6").val()) );
-		myDataRef.child(n).child(6).set( parseInt( $("#val7").val()) );
-		myDataRef.child(n).child(7).set( parseInt( $("#val8").val()) );
-		myDataRef.child(n).child(8).set( parseInt( $("#val9").val()) );
-		myDataRef.child(n).child(9).set( parseInt( $("#val10").val()) );
-		
+		for ( var i = 0, l = 10; i < l; i++ ) {
+			p = i + 1;
+    			myDataRef.child(n).child(i).set( parseInt( $("#val"+p).val()) );
+    			};
 		
 		myDataRef.child(n).child(10).set( $("#newLabel").val() );
+	
+		createForm();
 	
 		d3.json('https://vib-data.firebaseio.com/.json', function(data) {
 				vibData = data; 
 				alert("New data stored successfully, you can now select and display it above");
 				});
-		createForm();
 		});
 	});
 
